@@ -26,11 +26,11 @@ GET https://api.researchmap.jp/{permalink}/{achievement_type}
 GET https://api.researchmap.jp/{permalink}/{achievement_type}/{achievement_id}
 ```
 個別の業績についての情報を取得します．{achievement_id} は，例えば
-```JSON
+```
 GET https://api.researchmap.jp/{permalink}/published_papers
 ```
-でリクエストしたときに得られる下記の情報の中の `rm:id` です．
-```JSON
+でリクエストしたときに得られる下記の情報の中の `xxxxxxxx` の部分です．
+```
 {....
  "items": [
     {
