@@ -4,7 +4,7 @@ researchmap で公開されている研究者情報から業績リストを取�
 
 researchmap.V2 WebAPI については，[仕様書](https://researchmap.jp/public/organ/WebAPI)を参照してください．
 
-以下で  {permalink} とはリンク識別子を指します．
+以下で  {permalink} とは研究者個別のリンク識別子を指します．
 参照したい研究者の researchmap の URL が https://researchmap.jp/700xxx/ の場合，{permalink} = 700xxx
 
 ## Usage
