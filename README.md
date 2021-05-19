@@ -5,7 +5,7 @@ researchmap で公開されている研究者情報から業績リストを取�
 （例）参照したい研究者の researchmap の URL が https://researchmap.jp/7000xxx/ の場合，permalink = 7000xxx
 
 ## Usage
-リストを載せたい HTML ファイルに id を指定した `<ul>` 要素を書き込んでおく．  
+業績リストを載せたい HTML ファイルに id を指定した `<ul>` 要素を書き込んでおく．  
 ```html
 <ul id = 'publist'> <!-- list generated here -->  </ul>
 ```
@@ -14,24 +14,28 @@ researchmap で公開されている研究者情報から業績リストを取�
 publist(permalink, ulid, limit, from_date, to_date)
 /**
 * @param permalink {string} - 研究者の識別子
-* @param ulid {string} - <ul> タグの id
+* @param ulid {string} - リストが書き込まれる <ul> タグの id
 * @param limit {int} - 取得する最大件数
 * @param from_date {string} - 指定期間の開始年月日（年）
 * @param to_date {string} - 指定期間の終了年月日（年）
 */
 ```
 ## Example
-単一の研究者の 2010 年から最新までの研究論文リストを取得する（デフォルトで最大100件）．
+* 単一の研究者の研究論文リストを最大 200 件取得する．
+```html
+<script> publist(permalink, ulid='publist', limit=200) </script>
+```
+* 単一の研究者の 2010 年から最新までの研究論文リストを取得する（デフォルトで最大100件）．
 ```html
 <script> publist(permalink, ulid='publist', limit='', from_date='2010', to_date='') </script>
 ```
-単一の研究者の 2010 年から最新までの研究論文リストを最大 1000 件取得する（仕様上 limit <= 1000）．
+* 単一の研究者の 1980 年から最新までの研究論文リストを最大 1000 件取得する（仕様上 limit <= 1000）．
 ```html
-<script> publist(permalink, ulid='publist', limit=1000, from_date='2010', to_date='') </script>
+<script> publist(permalink, ulid='publist', limit=1000, from_date='1980', to_date='') </script>
 ```
 ### 複数の研究者の論文をまとめたリスト
-publistMulti 関数は，研究室メンバーの業績をまとめたリストを作ることを想定して複数の permalink の配列を引数にとり，doi をキーとして重複をなくした業績リストを作ります．
-複数の研究者（permalinks = ['aaa', 'bbb', 'ccc']）の重複を省いた研究論文リストを取得する（1人の研究者のレコードは最大 limit 件）．
+publistMulti 関数は，研究室メンバーの業績をまとめたリストを作ることを想定して permalink の配列を引数にとり，doi をキーとして重複を省いた業績リストを作ります．
+* 複数の研究者（permalinks = ['aaa', 'bbb', 'ccc']）の研究論文リストを取得する（1人の研究者のレコードは最大 limit 件）．
 ```html
 <script> publistMulti(['aaa', 'bbb', 'ccc'], ulid='publistMulti', limit='', from_date='', to_date='') </script>
 ```
@@ -39,18 +43,14 @@ publistMulti 関数は，研究室メンバーの業績をまとめたリスト�
 id を指定した `<ul>` 要素に下記の形式のリストが追加される
 <ul id='publist'>
  <li>
-  <strong> Paper title </strong>
-  <i>, Journal name (year) </i>
-  <a href="https://doi.org/doi">doi</a>
+  <strong> Paper title </strong><i>, Journal name (year) </i><a href="https://doi.org/doi">doi</a>
  </li>
 </ul>
 
 ```html
 <ul id='publist'>
  <li>
-  <strong> Paper title </strong>
-  <i>, Journal name (year) </i>
-  <a href="https://doi.org/doi">doi</a>
+  <strong> Paper title </strong>  <i>, Journal name (year) </i><a href="https://doi.org/doi">doi</a>
  </li>
 </ul>
 ```
