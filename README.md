@@ -20,6 +20,7 @@ publist(permalink, ulid, limit, from_date, to_date)
 * @param to_date {string} - 指定期間の終了年月日（年）
 */
 ```
+## Example
 単一の研究者の 2010 年から最新までの研究論文リストを取得する（デフォルトで最大100件）．
 ```html
 <script> publist(permalink, ulid='publist', limit='', from_date='2010', to_date='') </script>
