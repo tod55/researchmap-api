@@ -1,6 +1,6 @@
-# scraping_researchmap
+# researchmap-api
 
-researchmap で公開されている研究者情報から業績リストを取得するスクリプトです．
+researchmap で公開されている研究者情報から業績リストを取得し，HTMLにリストを追加する javascript です．
 
 researchmap.V2 WebAPI については，[仕様書](https://researchmap.jp/public/organ/WebAPI)を参照してください．
 
