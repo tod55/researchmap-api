@@ -20,6 +20,8 @@ https://api.researchmap.jp/{permalink}/{achievement_type}
 ```
 業績種別が論文の場合，`{achievement_type}=published_papers` になります．
 GET リクエストのパラメータとして，次のものが指定できます．
+このうち limit, from_date, to_date を関数の引数として指定できるようにしています．
+
 | パラメータ名 | 意味 | 説明 |
 | ---- | ---- | ---- |
 | sort | ソート順 | default：新しい順 ※ 出版年月、受賞年月等、業績毎で利用する項目が変わる．研究キーワード，研究分野は更新日時の降順になる．modified：更新日の昇順 ※昇順を降順にする場合，先頭に「-」をつける．例：更新日の降順「&sort=-modified」|
