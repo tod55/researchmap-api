@@ -1,15 +1,15 @@
 # researchmap-api
 
 researchmap で公開されている研究者情報から業績リストを取得し，HTMLにリストを追加する javascript です．
-以下で  {permalink} とは研究者個別のリンク識別子を指します．
-（例）参照したい研究者の researchmap の URL が https://researchmap.jp/700xxx/ の場合，{permalink} = 700xxx
+以下で  permalink とは研究者個別のリンク識別子を指します．
+（例）参照したい研究者の researchmap の URL が https://researchmap.jp/7000xxx/ の場合，permalink = 7000xxx
 
 ## Usage
-単一の研究者（permalink）の 2010 年から最新までの研究論文リストを取得する（デフォルトで最大100件）．
+単一の研究者の 2010 年から最新までの研究論文リストを取得する（デフォルトで最大100件）．
 ```
 publist(permalink, limit='', from_date='2010', to_date='')
 ```
-単一の研究者（permalink）の 2010 年から最新までの研究論文リストを最大 1000 件取得する．
+単一の研究者の 2010 年から最新までの研究論文リストを最大 1000 件取得する．
 ```
 publist(permalink, limit=1000, from_date='2010', to_date='')
 ```
