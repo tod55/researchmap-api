@@ -35,7 +35,7 @@ function publist(permalink, ulid='publist', limit=100, from_date='', to_date='')
                 throw new Error('data has no items');
             }
             for (const item of data["items"]) {
-                if(!item["identifiers"] || !item["identifiers"]["doi"] || !item["paper_title"]["en"] || item["published_paper_type"] !== 'scientific_journal'){
+                if(!item["identifiers"] || !item["identifiers"]["doi"] || !item["paper_title"]["en"] || item["published_paper_type"] != 'scientific_journal'){
                     continue;
                 }
                 let listItem = document.createElement('li');
