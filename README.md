@@ -7,18 +7,17 @@ researchmap で公開されている研究者情報から業績リストを取�
 ## Usage
 単一の研究者の 2010 年から最新までの研究論文リストを取得する（デフォルトで最大100件）．
 ```
-publist(permalink, limit='', from_date='2010', to_date='')
+<script> publist(permalink, ulid='publist', limit='', from_date='2010', to_date='') </script>
 ```
 単一の研究者の 2010 年から最新までの研究論文リストを最大 1000 件取得する（仕様上 limit <= 1000）．
 ```
-publist(permalink, limit=1000, from_date='2010', to_date='')
+<script> publist(permalink, ulid='publist', limit=1000, from_date='2010', to_date='') </script>
 ```
 
 複数の研究者（permalinks = ['aaa', 'bbb', 'ccc']）の重複を省いた研究論文リストを取得する（1人の研究者のレコードは最大 limit 件）．
 ```
-publistMulti(['aaa', 'bbb', 'ccc'], limit='', from_date='', to_date='')
+<script> publistMulti(['aaa', 'bbb', 'ccc'], ulid='publistMulti', limit='', from_date='', to_date='') </script>
 ```
-
 
 
 ## 取得する業績の種類
