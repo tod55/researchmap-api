@@ -10,12 +10,15 @@ researchmap で公開されている研究者情報から業績リストを取�
 
 ## APIリクエスト
 researchmap.V2 WebAPI については，[仕様書](https://researchmap.jp/public/organ/WebAPI)を参照してください．
+ブラウザの URL 欄に https://api.researchmap.jp/{permalink} を張り付けると researchmap で公開されているその研究者のすべての情報が json 形式で確認できます．
+この関数ではとりあえず業績種別（achievement_type）が 論文（published_papers）であって，doi が登録されているものをリストとして表示します．
+
 ### 業績リスト
 ```
-GET https://api.researchmap.jp/{permalink}/{achievement_type}
+https://api.researchmap.jp/{permalink}/{achievement_type}
 ```
 業績種別が論文の場合，`{achievement_type}=published_papers` になります．
-GET リクエストのパラメータとして，次のものが指定できる．
+GET リクエストのパラメータとして，次のものが指定できます．
 | パラメータ名 | 意味 | 説明 |
 | ---- | ---- | ---- |
 | sort | ソート順 | default：新しい順 ※ 出版年月、受賞年月等、業績毎で利用する項目が変わる．研究キーワード，研究分野は更新日時の降順になる．modified：更新日の昇順 ※昇順を降順にする場合，先頭に「-」をつける．例：更新日の降順「&sort=-modified」|
@@ -51,13 +54,13 @@ GET リクエストのパラメータとして，次のものが指定できる�
 
 ### 業績情報
 ```
-GET https://api.researchmap.jp/{permalink}/{achievement_type}/{achievement_id}
+https://api.researchmap.jp/{permalink}/{achievement_type}/{achievement_id}
 ```
 個別の業績についての情報を取得します．{achievement_id} は，例えば
 ```
-GET https://api.researchmap.jp/{permalink}/published_papers
+https://api.researchmap.jp/{permalink}/published_papers
 ```
-でリクエストしたときに得られる下記の情報の中の `xxxxxxxx` の部分です．
+で GET リクエストしたときに得られる下記の情報の中の `xxxxxxxx` の部分です．
 ```
 {....
  "items": [
@@ -70,7 +73,7 @@ GET https://api.researchmap.jp/{permalink}/published_papers
 
 ### プロフィール情報
 ```
-GET https://api.researchmap.jp/{permalink}/profile
+https://api.researchmap.jp/{permalink}/profile
 ```
 単一の研究者のプロフィール情報を返します。
 
