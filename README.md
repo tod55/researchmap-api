@@ -16,7 +16,7 @@ publist(permalink, limit=1000, from_date='2010', to_date='')
 
 複数の研究者（permalinks = ['aaa', 'bbb', 'ccc']）の重複を省いた研究論文リストを取得する（デフォルトで1人の研究者のレコードは最大100件）．
 ```
-publist(['aaa', 'bbb', 'ccc'], limit='', from_date='', to_date='')
+publist_multi(['aaa', 'bbb', 'ccc'], limit='', from_date='', to_date='')
 ```
 
 
