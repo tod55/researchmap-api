@@ -16,14 +16,14 @@ publist(permalink, limit=1000, from_date='2010', to_date='')
 
 複数の研究者（permalinks = ['aaa', 'bbb', 'ccc']）の重複を省いた研究論文リストを取得する（1人の研究者のレコードは最大 limit 件）．
 ```
-publist_multi(['aaa', 'bbb', 'ccc'], limit='', from_date='', to_date='')
+publistMulti(['aaa', 'bbb', 'ccc'], limit='', from_date='', to_date='')
 ```
 
 
 
 ## 取得する業績の種類
 この関数ではとりあえず業績の中で「業績種別」（achievement_type）が 「論文」（published_papers）であって，doi および英語タイトルが登録されている，かつ「掲載種別」（published_paper_type）が 「研究論文（学術雑誌）」（scientific_journal）であるものをリストとして表示します． 研究論文でも掲載種別の項目が登録されていない場合は表示されませんので，区別なく表示したい場合は (item["published_paper_type"] == 'scientific_journal') という条件を消してください．
-publist_multi 関数は，研究室メンバーの業績をまとめたリストを作ることを想定して複数の permalink の配列を引数にとり，doi をキーとして重複をなくした業績リストを作ります．
+publistMulti 関数は，研究室メンバーの業績をまとめたリストを作ることを想定して複数の permalink の配列を引数にとり，doi をキーとして重複をなくした業績リストを作ります．
 
 ## APIリクエスト
 researchmap.V2 WebAPI については，[仕様書](https://researchmap.jp/public/organ/WebAPI)を参照してください．
