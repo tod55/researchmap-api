@@ -8,7 +8,7 @@ researchmap で公開されている研究者情報から業績リストを取�
 
 
 ## 取得する業績の条件
-この関数ではとりあえず業績の中で業績種別（achievement_type）が 論文（published_papers）であって，doi および英語タイトルが登録されている，かつ掲載種別（published_paper_type）が 研究論文（学術雑誌）（scientific_journal"）であるものをリストとして表示します． 
+この関数ではとりあえず業績の中で「業績種別」（achievement_type）が 「論文」（published_papers）であって，doi および英語タイトルが登録されている，かつ「掲載種別」（published_paper_type）が 「研究論文（学術雑誌）」（scientific_journal）であるものをリストとして表示します． 
 
 ## APIリクエスト
 researchmap.V2 WebAPI については，[仕様書](https://researchmap.jp/public/organ/WebAPI)を参照してください．
