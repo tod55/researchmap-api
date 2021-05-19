@@ -34,8 +34,16 @@ publistMulti 関数は，研究室メンバーの業績をまとめたリスト�
 ```html
 <script> publistMulti(['aaa', 'bbb', 'ccc'], ulid='publistMulti', limit='', from_date='', to_date='') </script>
 ```
-### 結果のリスト
+### 結果の表示形式
 id を指定した `<ul>` 要素に下記の形式のリストが追加される
+<ul id='publist'>
+ <li>
+  <strong> Paper title </strong>
+  <i>, Journal name (year) </i>
+  <a href="https://doi.org/doi">doi</a>
+ </li>
+</ul>
+
 ```html
 <ul id='publist'>
  <li>
