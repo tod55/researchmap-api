@@ -1,7 +1,7 @@
 # researchmap-api
 
 Web ページに researchmap で公開されている研究者情報から作成した業績リストを自動で追加する javascript です．
-Web ページが表示される時点の最新の情報が取得されるので，手動で html ファイルを更新する手間がありません．
+手動で html ファイルを更新することなく最新の情報を Web ページで公開できます．
 
 以下で  permalink とは研究者個別の識別子を指します．
 （例）参照したい研究者の researchmap の URL が `https://researchmap.jp/7000xxx/` の場合，`permalink = 7000xxx`
