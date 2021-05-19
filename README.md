@@ -7,7 +7,7 @@ researchmap で公開されている研究者情報から業績リストを取�
 ## Usage
 リストを載せたい HTML ファイルに id を指定した <ul> 要素を書き込んでおく．  
 ```html
-<ul id = ulid> <!-- list generated here -->  </ul>
+<ul id = 'publist'> <!-- list generated here -->  </ul>
 ```
 適当な場所で javascript の関数 publist または publistMulti を呼ぶ．
 ```js
