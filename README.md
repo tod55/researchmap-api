@@ -1,6 +1,8 @@
 # researchmap-api
 
-researchmap で公開されている研究者情報から業績リストを取得し，HTMLにリストを追加する javascript です．
+Web ページに researchmap で公開されている研究者情報から作成した業績リストを自動で追加する javascript です．
+Web ページが表示される時点の最新の情報が取得されるので，手動で html ファイルを更新する手間がありません．
+
 以下で  permalink とは研究者個別の識別子を指します．
 （例）参照したい研究者の researchmap の URL が `https://researchmap.jp/7000xxx/` の場合，`permalink = 7000xxx`
 
@@ -35,24 +37,27 @@ publist(permalink, ulid, limit, from_date, to_date)
 ```
 
 ## Example
-* 単一の研究者の研究論文リストを最大 200 件取得する．
+* 単一の研究者の研究論文リストを最大 20 件取得する（リストの順番は researchmap のデフォルト：新しい順）．
 ```html
-<script> publist(permalink, ulid='publist', limit=200) </script>
-```
-* 単一の研究者の 2010 年から最新までの研究論文リストを取得する（デフォルトで最大100件）．
-```html
-<script> publist(permalink, ulid='publist', limit='', from_date='2010', to_date='') </script>
+<script> publist(permalink, ulid='publist', limit=20) </script>
 ```
 * 単一の研究者の 1980 年から最新までの研究論文リストを最大 1000 件取得する（仕様上 limit <= 1000）．
 ```html
 <script> publist(permalink, ulid='publist', limit=1000, from_date='1980', to_date='') </script>
 ```
+* 単一の研究者の2010年から2012年までの研究論文リストを取得する．
+```html
+<script> publist(permalink, ulid='publist', limit=100, from_date='2010', to_date='2012') </script>
+```
+
 #### 複数の研究者の論文をまとめたリスト
 publistMulti 関数は，研究室メンバーの業績をまとめたリストを作ることを想定して permalink の配列を引数にとり，doi をキーとして重複を省いた業績リストを作ります．
 * 複数の研究者（permalinks = ['aaa', 'bbb', 'ccc']）の研究論文リストを取得する（1人の研究者のレコードは最大 limit 件）．
 ```html
-<script> publistMulti(['aaa', 'bbb', 'ccc'], ulid='publistMulti', limit='', from_date='', to_date='') </script>
+<script> publistMulti(['aaa', 'bbb', 'ccc'], ulid='publistMulti') </script>
 ```
+publist と同様にパラメータ limit='', from_date='', to_date='' も指定可能です．
+
 #### 結果の表示形式
 id を指定した `<ul>` 要素に下記の形式のリストが追加される
 <ul id='publist'>
@@ -68,9 +73,12 @@ Chrome や Microsoft Edge などの Chromium ベースブラウザでは， Wind
 開発者ツールの Network タブを使って HTML リクエストやレスポンスを簡単に調査できます 🔎．
 
 ## 取得する業績の種類
-この関数では researchmap に登録された業績の中で「業績種別」（achievement_type）が 「論文」（published_papers）であって，doi および英語タイトルが登録されている，かつ「掲載種別」（published_paper_type）が 「研究論文（学術雑誌）」（scientific_journal）であるものをリストとして表示します． 研究論文でも掲載種別の項目が登録されていない場合は表示されませんので，区別なく表示したい場合はソースコードの中を見て (item["published_paper_type"] == 'scientific_journal') という条件を消してください．
+この関数では researchmap に登録された業績の中で「業績種別」（achievement_type）が 「論文」（published_papers）であって，doi および英語タイトルが登録されている，かつ「掲載種別」（published_paper_type）が 「研究論文（学術雑誌）」（scientific_journal）であるものをリストとして表示します． 研究論文でも掲載種別の項目が登録されていない場合や別の種別：「研究論文（国際会
+議プロシーディングス）」などは表示されませんので，区別なく表示したい場合は javascript ソースコードの中を見て (item["published_paper_type"] == 'scientific_journal') という条件を消してください．
 
-# researchmap WebAPI（参考）
+- - -
+
+## researchmap WebAPI（参考）
 researchmap.V2 WebAPI については，[仕様書](https://researchmap.jp/public/organ/WebAPI)を参照してください．
 
 ### 業績種別
@@ -102,7 +110,7 @@ https://api.researchmap.jp/{permalink}/{achievement_type}
 |academic_contribution| 学術貢献活動|
 |others |その他|
 
-## GET リクエストパラメータ
+### GET リクエストパラメータ
 GET リクエストのパラメータとして，次のものが指定できます．
 このスクリプトでは，この中の limit, from_date, to_date を関数の引数として指定できるようにしています．
 URL の末尾にクエリ文字として追加されます．
