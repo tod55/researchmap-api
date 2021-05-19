@@ -33,27 +33,22 @@ publist(permalink, ulid, limit, from_date, to_date)
 ```html
 <script> publist(permalink, ulid='publist', limit=1000, from_date='1980', to_date='') </script>
 ```
-### 複数の研究者の論文をまとめたリスト
+#### 複数の研究者の論文をまとめたリスト
 publistMulti 関数は，研究室メンバーの業績をまとめたリストを作ることを想定して permalink の配列を引数にとり，doi をキーとして重複を省いた業績リストを作ります．
 * 複数の研究者（permalinks = ['aaa', 'bbb', 'ccc']）の研究論文リストを取得する（1人の研究者のレコードは最大 limit 件）．
 ```html
 <script> publistMulti(['aaa', 'bbb', 'ccc'], ulid='publistMulti', limit='', from_date='', to_date='') </script>
 ```
-### 結果の表示形式
+#### 結果の表示形式
 id を指定した `<ul>` 要素に下記の形式のリストが追加される
 <ul id='publist'>
  <li>
-  <strong> Paper title </strong><i>, Journal name (year) </i><a href="https://doi.org/doi">doi</a>
+  <strong>Paper title1 </strong><i>, Journal name1 (year1) </i><a href="https://doi.org/doi1">doi1</a>
+ </li>
+  <li>
+  <strong>Paper title2 </strong><i>, Journal name2 (year2) </i><a href="https://doi.org/doi2">doi2</a>
  </li>
 </ul>
-
-```html
-<ul id='publist'>
- <li>
-  <strong> Paper title </strong>  <i>, Journal name (year) </i><a href="https://doi.org/doi">doi</a>
- </li>
-</ul>
-```
 
 ## 取得する業績の種類
 この関数ではとりあえず業績の中で「業績種別」（achievement_type）が 「論文」（published_papers）であって，doi および英語タイトルが登録されている，かつ「掲載種別」（published_paper_type）が 「研究論文（学術雑誌）」（scientific_journal）であるものをリストとして表示します． 研究論文でも掲載種別の項目が登録されていない場合は表示されませんので，区別なく表示したい場合はソースコードの中を見て (item["published_paper_type"] == 'scientific_journal') という条件を消してください．
