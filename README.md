@@ -92,9 +92,9 @@ https://api.researchmap.jp/{permalink}/{achievement_type}
 GET リクエストのパラメータとして，次のものが指定できます．
 このスクリプトでは，この中の limit, from_date, to_date を関数の引数として指定できるようにしています．
 URL の末尾にクエリ文字として追加されます．
-"""
+```
 https://api.researchmap.jp/{permalink}/{achievement_type}?limit=100&&from_date=2016
-"""
+```
 実際にどのような URL でリクエストされたかは，取得した json データの `"@id"` の値として確認できます．
 
 | パラメータ名 | 意味 | 説明 |
