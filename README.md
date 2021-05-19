@@ -9,7 +9,7 @@ researchmap で公開されている研究者情報から業績リストを取�
 ```
 publist(permalink, limit='', from_date='2010', to_date='')
 ```
-単一の研究者の 2010 年から最新までの研究論文リストを最大 1000 件取得する．
+単一の研究者の 2010 年から最新までの研究論文リストを最大 1000 件取得する（仕様上 limit <= 1000）．
 ```
 publist(permalink, limit=1000, from_date='2010', to_date='')
 ```
